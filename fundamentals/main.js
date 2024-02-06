@@ -44,6 +44,10 @@ function animate() {
     cube.rotation.x += 0.01;
     cube.rotation.y += 0.01;
     cube.rotation.z += 0.01;
+    cubes.map((c) => {
+        c.rotation.x += 0.01;
+        c.rotation.y += 0.01;
+    });
     renderer.render(scene, camera);
 }
 animate()
