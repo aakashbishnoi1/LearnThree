@@ -12,3 +12,9 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 
 renderer.render(scene, camera);
 
+
+// Add a cube
+const cubeGeometry = new THREE.BoxGeometry(10,10,10);
+const cubeMaterial = new THREE.MeshStandardMaterial({color: 0x330587});
+const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+scene.add(cube);
