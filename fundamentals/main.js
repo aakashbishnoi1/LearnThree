@@ -14,16 +14,29 @@ renderer.render(scene, camera);
 
 
 // Add a cube
-const cubeGeometry = new THREE.BoxGeometry(10,10,10);
+const cubeGeometry = new THREE.BoxGeometry(4,4,4);
 const cubeMaterial = new THREE.MeshPhongMaterial({color: 0x330587});
 const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
-cube.position.set(-5,0);
 scene.add(cube);
 
 // Add light 
 const light = new THREE.DirectionalLight(0xffffff, 20);
 light.position.set(6,6,14);
 scene.add(light);
+
+// add multiple cubes
+function cubeInstance(geometry, color, x) {
+    const material = new THREE.MeshPhongMaterial({color});
+    const cube = new THREE.Mesh(geometry, material);
+    scene.add(cube)
+    cube.position.setX(x);
+    return cube;
+}
+
+const cubes = [
+    cubeInstance(cubeGeometry, 0xffd34a, -7),
+    cubeInstance(cubeGeometry, 0x53ffed, 7),
+]
 
 // animate
 function animate() {
