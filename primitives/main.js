@@ -1,9 +1,9 @@
 import './style.css'
-
 import * as THREE from "three";
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
 
 // set up the camera, scene and renderer
-
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.01, 1000);
 const scene = new THREE.Scene();
 const renderer = new THREE.WebGLRenderer({canvas: document.getElementById("bg")});
@@ -23,11 +23,17 @@ function resizeRendererToScreenSize(renderer) {
 }
 
 // Add a bed using a box
-const bedGeometry = new THREE.BoxGeometry(10,2,4);
-const bedMaterial = new THREE.MeshBasicMaterial({color: 0x00ff00});
+const bedGeometry = new THREE.BoxGeometry(10,2,6.6);
+const bedMaterial = new THREE.MeshBasicMaterial({color: 0x00dd00});
 const bed = new THREE.Mesh(bedGeometry, bedMaterial);
 scene.add(bed);
-bed.position.set(1,3,0);
+bed.position.set(0,0,0);
+bed.rotateX(60);
+bed.rotateY(55);
+
+// orbit controls
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.update();
 
 
 function animate() {
