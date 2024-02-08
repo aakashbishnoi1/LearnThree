@@ -21,3 +21,9 @@ function resizeRendererToScreenSize(renderer) {
     return needResize;
 }
 
+function animate() {
+    requestAnimationFrame(animate);
+    resizeRendererToScreenSize(renderer);
+    renderer.render(scene, camera);
+}
+animate();
